@@ -71,7 +71,7 @@ def enfriamiento(population):
 
     return population
 
-if __name__ == "__main__":     
+if __name__ == "__main__":
     #Inicio del proceso de evolucion
     
     population = crearPoblacion()#Inicializar una poblacion

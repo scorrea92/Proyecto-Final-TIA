@@ -15,7 +15,6 @@ El problema descrito es una lista de espera de barcos para el atraque en una ter
 
 ![comparativa](https://raw.githubusercontent.com/scorrea92/Proyecto-Final-TIA/master/resources/Imagen_2.png)
 
-
 ## Concluciones
 
 * Para el problema planteado el algoritmo genético presenta mejores resultados que el algoritmo de enfriamiento simulado. El mejor individuo obtenido en todos los experimentos para la solución del problema fue:

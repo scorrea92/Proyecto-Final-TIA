@@ -1,6 +1,9 @@
 # Proyecto-Final-TIA
 
-El problema descrito es una lista de espera de barcos para el atraque en una terminal de contenedores.
+El problema descrito es una lista de espera de barcos para el atraque en una terminal de contenedores. Para ejecutar los scripts solo debe ser: 
+````
+python algGen_Barcos.py  
+````
 
 ![Image of problem](https://raw.githubusercontent.com/scorrea92/Proyecto-Final-TIA/master/resources/Imagen%201.png)
 

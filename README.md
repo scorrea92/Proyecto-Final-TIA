@@ -13,7 +13,7 @@ El problema descrito es una lista de espera de barcos para el atraque en una ter
 
 ## Resultados
 
-![comparativa](https://raw.githubusercontent.com/scorrea92/Proyecto-Final-TIA/master/resources/Imagen_2.png)
+![comparativa](https://raw.githubusercontent.com/scorrea92/Proyecto-Final-TIA/master/resources/Imagen2.png)
 
 ## Concluciones
 
@@ -22,4 +22,4 @@ El problema descrito es una lista de espera de barcos para el atraque en una ter
 
 * En un caso práctico de necesitarse detener el algoritmo debido a cuestiones de tiempo y necesidad y trabajar con la última solución obtenida el algoritmo genético asegura que el individuo que entregara será mejor al anterior y a la inicial, mientras que en el enfriamiento simulado como hay una búsqueda de mejora la solución podría encontrarse en una desmejora en comparación con su solución anterior o inicial
 
-#### Para más información ver [memoria]()
+#### Para más información ver [memoria](https://github.com/scorrea92/Proyecto-Final-TIA/blob/master/resources/MemoriaPFTIA.pdf)

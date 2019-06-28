@@ -71,27 +71,22 @@ def enfriamiento(population):
 
     return population
 
-#Inicio del proceso de evolucion
-  
-population = crearPoblacion()#Inicializar una poblacion
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados)]
-print("Poblacion Inicial:\n%s"%(puntuados)) #Se muestra la poblacion inicial
-  
-  
-#Se realiza el enfriamiento
-for i in range(gen):
-    #print("Generacion: ",i)
-    population = enfriamiento(population)
-    T = T/(1+k*T)
+if __name__ == "__main__":     
+    #Inicio del proceso de evolucion
+    
+    population = crearPoblacion()#Inicializar una poblacion
+    puntuados = [ (calcularFitness(i), i) for i in population]
+    puntuados = [i for i in sorted(puntuados)]
+    print("Poblacion Inicial:\n%s"%(puntuados)) #Se muestra la poblacion inicial
+    
+    
+    #Se realiza el enfriamiento
+    for i in range(gen):
+        #print("Generacion: ",i)
+        population = enfriamiento(population)
+        T = T/(1+k*T)
 
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados)]
-print("\nPoblacion Final:\n%s"%(puntuados)) #Se muestra la poblacion evolucionada
-print("\n\n")
-
-
-
-
-
-
+    puntuados = [ (calcularFitness(i), i) for i in population]
+    puntuados = [i for i in sorted(puntuados)]
+    print("\nPoblacion Final:\n%s"%(puntuados)) #Se muestra la poblacion evolucionada
+    print("\n\n")

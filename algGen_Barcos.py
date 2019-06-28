@@ -93,26 +93,21 @@ def mutation(population):
             
   
     return population
-      
-#Inicio del proceso de evolucion
-  
-population = crearPoblacion()#Inicializar una poblacion
-print("Poblacion Inicial:\n%s"%(population)) #Se muestra la poblacion inicial
-  
-  
-#Se evoluciona la poblacion
-for i in range(gen):
-    #print("Generacion: ",i)
-    population = selection_and_reproduction(population)
-    population = mutation(population)
 
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados, reverse=True)]
-print("\nPoblacion Final:\n%s"%(puntuados)) #Se muestra la poblacion evolucionada
-print("\n\n")
+if __name__ == "__main__":      
+    #Inicio del proceso de evolucion
+    
+    population = crearPoblacion()#Inicializar una poblacion
+    print("Poblacion Inicial:\n%s"%(population)) #Se muestra la poblacion inicial
+    
+    
+    #Se evoluciona la poblacion
+    for i in range(gen):
+        #print("Generacion: ",i)
+        population = selection_and_reproduction(population)
+        population = mutation(population)
 
-
-
-
-
-
+    puntuados = [ (calcularFitness(i), i) for i in population]
+    puntuados = [i for i in sorted(puntuados, reverse=True)]
+    print("\nPoblacion Final:\n%s"%(puntuados)) #Se muestra la poblacion evolucionada
+    print("\n\n")

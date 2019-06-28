@@ -1,13 +1,14 @@
 #Solución Barcos algoritmo genetico
 import os
-os.system('clear')
-
-#Inicio del programa
 import random
 from random import shuffle
 import collections
 import math
 from datetime import datetime
+
+
+os.system('clear')
+
 #Formato de información de barcos	
 max_barcos = 20
 barcos = {}
@@ -15,13 +16,6 @@ max_long = 700
 max_gruas = 7
 FG = max_long/max_gruas
 
-#Creo los 10 barcos de muestra
-# for i in range(max_barcos):
-# 	mov = round(random.uniform(100, 1000))
-# 	eslora = round(random.uniform(100, 500))
-# 	llegada = round(random.uniform(30,180))
-# 	prioridad = round(random.uniform(0,8))
-# 	barcos[i+1] = [llegada, mov, eslora, prioridad]
 barcos = {1: [100, 390, 375, 3], 2: [84, 700, 414, 6], 3: [38, 706, 149, 1], 4: [51, 352, 500, 5], 5: [59, 745, 285, 6], 6: [102, 565, 139, 6], 7: [115, 308, 453, 6], 8: [154, 713, 438, 6], 9: [113, 889, 150, 7], 10: [152, 466, 388, 6], 11: [77, 176, 119, 3], 12: [46, 788, 468, 6], 13: [133, 517, 174, 7], 14: [168, 787, 277, 3], 15: [71, 309, 498, 0], 16: [66, 990, 419, 4], 17: [122, 595, 177, 6], 18: [168, 858, 117, 2], 19: [96, 406, 447, 4], 20: [60, 223, 455, 1]}
 
 print("llegada	mov	eslora	prioridad")
@@ -137,16 +131,6 @@ def enfriamiento(population):
 		deltaF = calcularFitness(old) - calcularFitness(new)
 		prob = math.exp( deltaF/T )
 
-		# print("old",old)
-		# print("new",new)
-		
-		# print("Fitness viejo",calcularFitness(old))
-		# print("Fitness nuevo",calcularFitness(new))
-		
-		# print("Delta",deltaF)
-		# print("Prob",prob)
-		# print("T",T)
-
 		if(deltaF>=0):
 			population[i] = new
 			T = T/(1+k*(T/10000))
@@ -158,37 +142,30 @@ def enfriamiento(population):
 
 	return population
 
-#Inicio del proceso de evolucion
+if __name__ == "__main__":
+	#Inicio del proceso de evolucion
 
-population = [[14, 15, 16, 1, 20, 6, 13, 8, 18, 4, 7, 17, 10, 19, 5, 12, 11, 2, 3, 9]]
-#crearPoblacion()#Inicializar una poblacion
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados)]
-print("Poblacion Inicial:\n%s"%(puntuados)) #Se muestra la poblacion inicial
-
-print("inicio", datetime.now().time())
-print("")
-#Se realiza el enfriamiento con iteraciones
-for i in range(gen):
-	print("Iteracion: ",i)
-	print("T: ",T)
-	population = enfriamiento(population)
+	population = [[14, 15, 16, 1, 20, 6, 13, 8, 18, 4, 7, 17, 10, 19, 5, 12, 11, 2, 3, 9]]
+	#crearPoblacion()#Inicializar una poblacion
 	puntuados = [ (calcularFitness(i), i) for i in population]
 	puntuados = [i for i in sorted(puntuados)]
-	print("Mejor fitness ",puntuados[0])
+	print("Poblacion Inicial:\n%s"%(puntuados)) #Se muestra la poblacion inicial
 
+	print("inicio", datetime.now().time())
+	print("")
+	#Se realiza el enfriamiento con iteraciones
+	for i in range(gen):
+		print("Iteracion: ",i)
+		print("T: ",T)
+		population = enfriamiento(population)
+		puntuados = [ (calcularFitness(i), i) for i in population]
+		puntuados = [i for i in sorted(puntuados)]
+		print("Mejor fitness ",puntuados[0])
 
-# #Se realiza el enfriamiento con T minimo
-# i=0
-# while (T > 1000):
-# 	print("T",i,": ",T)
-# 	population = enfriamiento(population)
-# 	i+=1
-print("")
-print("Fin", datetime.now().time())
-print("")
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados)]
-print("\nPoblacion Final:\n%s"%(puntuados)) #Se muestra la poblacion evolucionada
-print("\n\n")
-
+	print("")
+	print("Fin", datetime.now().time())
+	print("")
+	puntuados = [ (calcularFitness(i), i) for i in population]
+	puntuados = [i for i in sorted(puntuados)]
+	print("\nPoblacion Final:\n%s"%(puntuados)) #Se muestra la poblacion evolucionada
+	print("\n\n")

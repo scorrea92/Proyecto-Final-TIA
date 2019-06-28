@@ -1,12 +1,12 @@
 #Solución Barcos algoritmo genetico
 import os
-os.system('clear')
-
-#Inicio del programa
 import random
 from random import shuffle
 import collections
 from datetime import datetime
+
+os.system('clear')
+
 #Formato de información de barcos	
 max_barcos = 20
 barcos = {}
@@ -14,13 +14,6 @@ max_long = 700
 max_gruas = 7
 FG = max_long/max_gruas
 
-#Creo los 10 barcos de muestra
-# for i in range(max_barcos):
-# 	mov = round(random.uniform(100, 1000))
-# 	eslora = round(random.uniform(100, 500))
-# 	llegada = round(random.uniform(30,180))
-# 	prioridad = round(random.uniform(0,8))
-# 	barcos[i+1] = [llegada, mov, eslora, prioridad]
 barcos = {1: [100, 390, 375, 3], 2: [84, 700, 414, 6], 3: [38, 706, 149, 1], 4: [51, 352, 500, 5], 5: [59, 745, 285, 6], 6: [102, 565, 139, 6], 7: [115, 308, 453, 6], 8: [154, 713, 438, 6], 9: [113, 889, 150, 7], 10: [152, 466, 388, 6], 11: [77, 176, 119, 3], 12: [46, 788, 468, 6], 13: [133, 517, 174, 7], 14: [168, 787, 277, 3], 15: [71, 309, 498, 0], 16: [66, 990, 419, 4], 17: [122, 595, 177, 6], 18: [168, 858, 117, 2], 19: [96, 406, 447, 4], 20: [60, 223, 455, 1]}
 
 print("llegada	mov	eslora	prioridad")
@@ -167,38 +160,32 @@ def mutation(population):
 			population[i][punto2] = aux
 
 	return population
-	  
-#Inicio del proceso de evolucion
-  
-#population = [[9, 6, 11, 8, 7, 4, 2, 1, 13, 17, 12, 16, 19, 10, 14, 15, 18, 5, 20, 3], [7, 3, 17, 5, 6, 8, 18, 16, 2, 4, 1, 10, 20, 9, 19, 11, 12, 14, 15, 13], [7, 17, 16, 6, 19, 14, 11, 9, 10, 13, 4, 18, 5, 15, 3, 20, 12, 2, 8, 1], [2, 7, 17, 18, 13, 10, 9, 11, 8, 14, 1, 5, 19, 12, 6, 4, 20, 3, 15, 16], [15, 9, 7, 10, 18, 13, 6, 4, 20, 11, 8, 1, 16, 5, 3, 14, 17, 2, 19, 12], [7, 6, 10, 14, 11, 15, 2, 3, 4, 18, 9, 13, 12, 8, 19, 1, 20, 17, 16, 5], [8, 4, 14, 13, 15, 20, 19, 2, 18, 1, 7, 10, 17, 3, 5, 9, 6, 16, 11, 12], [15, 1, 7, 19, 12, 9, 3, 5, 10, 17, 11, 6, 13, 2, 20, 16, 4, 8, 18, 14], [3, 20, 1, 6, 19, 8, 10, 4, 11, 17, 9, 7, 18, 14, 16, 2, 5, 12, 15, 13], [3, 17, 16, 1, 7, 10, 19, 15, 18, 13, 2, 9, 14, 8, 6, 12, 4, 11, 20, 5], [6, 20, 17, 18, 19, 5, 14, 8, 2, 9, 10, 4, 16, 11, 12, 7, 13, 1, 3, 15], [2, 8, 11, 10, 13, 15, 3, 20, 16, 17, 4, 7, 12, 9, 5, 18, 14, 19, 1, 6], [8, 5, 2, 20, 6, 13, 10, 14, 9, 11, 1, 12, 19, 17, 18, 16, 4, 3, 15, 7], [4, 19, 1, 14, 9, 20, 17, 10, 3, 5, 15, 13, 6, 2, 7, 11, 8, 12, 18, 16], [7, 20, 15, 1, 16, 10, 19, 5, 3, 9, 12, 2, 13, 17, 4, 11, 8, 6, 18, 14], [11, 10, 14, 16, 6, 18, 3, 17, 1, 5, 9, 4, 20, 12, 2, 15, 7, 8, 19, 13], [12, 14, 16, 17, 10, 6, 3, 7, 20, 15, 4, 11, 1, 19, 13, 18, 5, 2, 9, 8], [20, 8, 1, 3, 5, 4, 14, 19, 13, 10, 16, 6, 17, 7, 12, 15, 18, 9, 2, 11], [6, 16, 15, 8, 12, 1, 11, 4, 14, 10, 19, 13, 20, 5, 2, 18, 7, 3, 17, 9], [20, 8, 2, 7, 4, 3, 16, 11, 10, 1, 9, 14, 6, 18, 19, 13, 5, 12, 17, 15], [19, 3, 16, 6, 2, 9, 20, 4, 7, 17, 10, 15, 12, 5, 18, 11, 1, 13, 14, 8], [3, 13, 5, 6, 20, 9, 7, 2, 19, 18, 4, 15, 1, 14, 16, 11, 12, 8, 10, 17], [15, 17, 12, 16, 2, 11, 20, 5, 6, 14, 10, 13, 8, 9, 1, 19, 18, 4, 7, 3], [15, 7, 1, 8, 6, 16, 9, 18, 12, 17, 13, 3, 11, 20, 2, 14, 4, 19, 5, 10], [8, 18, 11, 9, 2, 6, 7, 14, 12, 1, 15, 13, 4, 3, 20, 10, 17, 5, 16, 19], [14, 15, 16, 1, 20, 6, 13, 8, 18, 4, 7, 17, 10, 19, 5, 12, 11, 2, 3, 9], [18, 15, 19, 1, 14, 5, 16, 2, 20, 4, 10, 11, 13, 7, 9, 12, 17, 6, 3, 8], [11, 3, 7, 18, 2, 16, 10, 6, 14, 1, 9, 12, 20, 17, 15, 8, 5, 19, 13, 4], [4, 3, 18, 12, 16, 8, 15, 19, 20, 14, 1, 2, 6, 11, 7, 17, 9, 10, 13, 5], [14, 17, 12, 1, 18, 20, 16, 11, 15, 19, 6, 8, 2, 9, 13, 3, 5, 10, 7, 4]]
-population = crearPoblacion()#Inicializar una poblacion
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados)]
-print("Poblacion Inicial:\n%s"%(puntuados)) #Se muestra la poblacion inicial
-  
-  
-#Se evoluciona la poblacion
-print("inicio", datetime.now().time())
-print("")
-for i in range(gen):
-	#print("Generacion: ",i)
-	population = selection_and_reproduction(population)
-	population = mutation(population)
 
+if __name__ == "__main__":
+	#Inicio del proceso de evolucion
+
+	#population = [[9, 6, 11, 8, 7, 4, 2, 1, 13, 17, 12, 16, 19, 10, 14, 15, 18, 5, 20, 3], [7, 3, 17, 5, 6, 8, 18, 16, 2, 4, 1, 10, 20, 9, 19, 11, 12, 14, 15, 13], [7, 17, 16, 6, 19, 14, 11, 9, 10, 13, 4, 18, 5, 15, 3, 20, 12, 2, 8, 1], [2, 7, 17, 18, 13, 10, 9, 11, 8, 14, 1, 5, 19, 12, 6, 4, 20, 3, 15, 16], [15, 9, 7, 10, 18, 13, 6, 4, 20, 11, 8, 1, 16, 5, 3, 14, 17, 2, 19, 12], [7, 6, 10, 14, 11, 15, 2, 3, 4, 18, 9, 13, 12, 8, 19, 1, 20, 17, 16, 5], [8, 4, 14, 13, 15, 20, 19, 2, 18, 1, 7, 10, 17, 3, 5, 9, 6, 16, 11, 12], [15, 1, 7, 19, 12, 9, 3, 5, 10, 17, 11, 6, 13, 2, 20, 16, 4, 8, 18, 14], [3, 20, 1, 6, 19, 8, 10, 4, 11, 17, 9, 7, 18, 14, 16, 2, 5, 12, 15, 13], [3, 17, 16, 1, 7, 10, 19, 15, 18, 13, 2, 9, 14, 8, 6, 12, 4, 11, 20, 5], [6, 20, 17, 18, 19, 5, 14, 8, 2, 9, 10, 4, 16, 11, 12, 7, 13, 1, 3, 15], [2, 8, 11, 10, 13, 15, 3, 20, 16, 17, 4, 7, 12, 9, 5, 18, 14, 19, 1, 6], [8, 5, 2, 20, 6, 13, 10, 14, 9, 11, 1, 12, 19, 17, 18, 16, 4, 3, 15, 7], [4, 19, 1, 14, 9, 20, 17, 10, 3, 5, 15, 13, 6, 2, 7, 11, 8, 12, 18, 16], [7, 20, 15, 1, 16, 10, 19, 5, 3, 9, 12, 2, 13, 17, 4, 11, 8, 6, 18, 14], [11, 10, 14, 16, 6, 18, 3, 17, 1, 5, 9, 4, 20, 12, 2, 15, 7, 8, 19, 13], [12, 14, 16, 17, 10, 6, 3, 7, 20, 15, 4, 11, 1, 19, 13, 18, 5, 2, 9, 8], [20, 8, 1, 3, 5, 4, 14, 19, 13, 10, 16, 6, 17, 7, 12, 15, 18, 9, 2, 11], [6, 16, 15, 8, 12, 1, 11, 4, 14, 10, 19, 13, 20, 5, 2, 18, 7, 3, 17, 9], [20, 8, 2, 7, 4, 3, 16, 11, 10, 1, 9, 14, 6, 18, 19, 13, 5, 12, 17, 15], [19, 3, 16, 6, 2, 9, 20, 4, 7, 17, 10, 15, 12, 5, 18, 11, 1, 13, 14, 8], [3, 13, 5, 6, 20, 9, 7, 2, 19, 18, 4, 15, 1, 14, 16, 11, 12, 8, 10, 17], [15, 17, 12, 16, 2, 11, 20, 5, 6, 14, 10, 13, 8, 9, 1, 19, 18, 4, 7, 3], [15, 7, 1, 8, 6, 16, 9, 18, 12, 17, 13, 3, 11, 20, 2, 14, 4, 19, 5, 10], [8, 18, 11, 9, 2, 6, 7, 14, 12, 1, 15, 13, 4, 3, 20, 10, 17, 5, 16, 19], [14, 15, 16, 1, 20, 6, 13, 8, 18, 4, 7, 17, 10, 19, 5, 12, 11, 2, 3, 9], [18, 15, 19, 1, 14, 5, 16, 2, 20, 4, 10, 11, 13, 7, 9, 12, 17, 6, 3, 8], [11, 3, 7, 18, 2, 16, 10, 6, 14, 1, 9, 12, 20, 17, 15, 8, 5, 19, 13, 4], [4, 3, 18, 12, 16, 8, 15, 19, 20, 14, 1, 2, 6, 11, 7, 17, 9, 10, 13, 5], [14, 17, 12, 1, 18, 20, 16, 11, 15, 19, 6, 8, 2, 9, 13, 3, 5, 10, 7, 4]]
+	population = crearPoblacion()#Inicializar una poblacion
 	puntuados = [ (calcularFitness(i), i) for i in population]
 	puntuados = [i for i in sorted(puntuados)]
-	print(puntuados[0])
+	print("Poblacion Inicial:\n%s"%(puntuados)) #Se muestra la poblacion inicial
 
-print("")
-print("Fin", datetime.now().time())
-puntuados = [ (calcularFitness(i), i) for i in population]
-puntuados = [i for i in sorted(puntuados)]
-print("\nPoblacion:\n%s"%(population)) #Se muestra la poblacion evolucionada
-print("\n\n")
-print("\nPoblacion Final:\n%s"%(puntuados))
+	#Se evoluciona la poblacion
+	print("inicio", datetime.now().time())
+	print("")
+	for i in range(gen):
+		#print("Generacion: ",i)
+		population = selection_and_reproduction(population)
+		population = mutation(population)
 
+		puntuados = [ (calcularFitness(i), i) for i in population]
+		puntuados = [i for i in sorted(puntuados)]
+		print(puntuados[0])
 
-
-
-
-
+	print("")
+	print("Fin", datetime.now().time())
+	puntuados = [ (calcularFitness(i), i) for i in population]
+	puntuados = [i for i in sorted(puntuados)]
+	print("\nPoblacion:\n%s"%(population)) #Se muestra la poblacion evolucionada
+	print("\n\n")
+	print("\nPoblacion Final:\n%s"%(puntuados))

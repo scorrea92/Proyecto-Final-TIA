@@ -96,5 +96,3 @@ for barco in indv:
 
 print("Fin de Ejecución")
 print(fitness)
-
-

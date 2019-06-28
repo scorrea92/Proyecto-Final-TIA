@@ -20,5 +20,3 @@ x2 = np.linspace(mu2 - 3*sigma2, mu2 + 3*sigma2, 100)
 
 plt.plot(x2,mlab.normpdf(x2, mu2, sigma2),'g')#,x1,mlab.normpdf(x1, mu1, sigma1),'b',x2,mlab.normpdf(x2, mu2, sigma2),'g')
 plt.show()
-
-	
